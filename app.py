@@ -2,7 +2,7 @@ import pickle
 import streamlit as st
  
 
-st.set_page_config(page_title='Streamlit Model Deployment', page_icon='✅',
+st.set_page_config(page_title='Streamlit Model Deployment', page_icon=':moneybag:',
                    layout="wide")
 
 # loading the trained model
@@ -67,13 +67,13 @@ def main():
     result =""
       
     # when 'Predict' is clicked, make the prediction and store it 
-    if st.button("Predict"): 
+    if st.button("Predict "): 
         result = prediction(Gender, Married, ApplicantIncome, LoanAmount, Credit_History) 
         if result == 'Rejected':
             st.error(f'Loan is {result}\n ## Sorry ** :sob: ** ')
 
         else:
-            st.success('loan is {}\n ## Congratulations ** :thumbsup:**'.format(result))
+            st.success('loan is {}\n ## Congratulations ** :thumbsup: :dollar: **'.format(result))
             st.balloons();
      
 if __name__=='__main__': 
