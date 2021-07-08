@@ -10,8 +10,6 @@ def load_model(model_path:str):
     pickled_model = open(model_path, 'rb') 
     classifier = pickle.load(pickled_model)
     return classifier
- 
-@st.cache()
   
 # defining the function which will make the prediction using the data which the user inputs 
 def prediction(Gender, Married, ApplicantIncome, LoanAmount, Credit_History):   
