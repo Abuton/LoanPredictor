@@ -49,7 +49,7 @@ def prediction(Gender, Married, ApplicantIncome, LoanAmount, Credit_History):
 def main():       
     # front end elements of the web page 
     html_temp = """ 
-    <div style ="background-color:#2a3990;padding:13px"> 
+    <div style ="background-color:#2a3990;padding:15px"> 
     <h2 style ="color:#ffff00;text-align:center;">Bank Loan Prediction</h2> 
     </div> 
     """
