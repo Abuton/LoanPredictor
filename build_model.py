@@ -84,6 +84,7 @@ def main():
     feature_df = feature_df.sort_values(by="Importance", ascending=False)
 
     ## Image Formatting
+    xticks_fs = 15
     axis_fs = 18
     title_fs = 22
     sns.set_style("whitegrid")
@@ -91,6 +92,8 @@ def main():
     ax = sns.barplot(x="Importance", y='Features', data=feature_df)
     ax.set_xlabel("Importance", fontsize=axis_fs)
     ax.set_ylabel("Features", fontsize=axis_fs)
+    plt.xticks(fontsize=xticks_fs)
+    plt.yticks(fontsize=xticks_fs)
     ax.set_title("Random Forest Classifier\n Feature Importance", fontsize=title_fs)
 
     plt.tight_layout()
