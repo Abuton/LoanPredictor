@@ -17,7 +17,7 @@ def prediction(Gender, Married, ApplicantIncome, LoanAmount, Credit_History):
     classifier = load_model("model/loan_predictor_model.pkl")
  
     # Pre-processing user input    
-    if Gender == "Male":
+    if Gender == "Male": 
         Gender = 0
     else:
         Gender = 1
