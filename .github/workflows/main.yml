@@ -10,7 +10,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: cml_run
-      
+      env: 
+        repo_token: ${{ secrets.ACCESS_TOKEN }}
       run: | 
         pip install -r requirements.txt
         python build_model.py
