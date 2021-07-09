@@ -1,24 +1,27 @@
-name: Super-Linter
-
-on: push
-
+name: Loan-Request-Acceptance-Model-Pipeline
+on: 
+  push:
+    branches:
+    - main
 jobs:
-
-  super-lint:
-
-    name: Lint code base
-
-    runs-on: ubuntu-latest
-
+  run:
+    runs-on: ubuntu-latest 
+    container: docker://dvcorg/cml-py3:latest
     steps:
+    - uses: actions/checkout@v2
+    - name: cml_run
+      env: 
+        repo_token: ${{ secrets.ACCESS_TOKEN }}
+      run: | 
+        pip install -r requirements.txt
+        python build_model.py
 
-      - name: Checkout code
+        # Write your CML report
+        echo "## Model Metrics" >> report.md
+        cat metrics.txt >> report.md
 
-        uses: actions/checkout@v2
+        echo "## Data Visualization" >> report.md
+        cml-publish featureImportance.png --md >> report.md
+
         
-        env:
-
-          DEFAULT_BRANCH: main
-
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+        cml-send-comment report.md

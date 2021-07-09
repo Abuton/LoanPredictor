@@ -1,6 +1,8 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier 
 from sklearn.metrics import accuracy_score
+import seaborn as sns
+import matplotlib.pyplot as plt
 import pickle
 
 
@@ -38,6 +40,25 @@ def save_model(model:RandomForestClassifier, model_name:str):
     pickle.dump(model, pickle_out) 
     pickle_out.close()
 
+def explained_variance(model,X, y):
+    train_score = model.score(X, y) * 100
+
+    return train_score
+
+def report_accuracy(model):
+    train_pred = model.predict(X)
+    train_accuracy = accuracy_score(train_pred, y) * 100
+
+    return train_accuracy
+
+
+def write_metrics(filename:str, train_score:float, train_accuracy:float ):
+    with open(filename, "w") as out_file:
+        out_file.write("Training Variance Explained:: %2.1f%%\n"% train_score)
+
+        out_file.write("Training Accuracy Score:: %2.1f%%\n"% train_accuracy)
+
+
 def main():
     # load the data
     df = load_data('data.csv')
@@ -49,6 +70,33 @@ def main():
     evaluate(classifier, X, y)
     # pickle the model
     save_model(classifier, model_name='model/loan_predictor_model.pkl')
+    # explained variance
+    train_score = explained_variance(classifier, X, y)
+    # train_accuracy
+    train_accuracy = report_accuracy(classifier)
+    # write metrics
+    write_metrics("metrics.txt", train_score, train_accuracy)
+
+    ### Plot Feature Importance
+    feature_importance = classifier.feature_importances_
+    labels = X.columns
+    feature_df = pd.DataFrame(list(zip(labels, feature_importance )), columns=['Features', 'Importance'])
+    feature_df = feature_df.sort_values(by="Importance", ascending=False)
+
+    ## Image Formatting
+    axis_fs = 18
+    title_fs = 22
+    sns.set_style("whitegrid")
+    plt.figure(figsize=(15,10))
+    ax = sns.barplot(x="Importance", y='Features', data=feature_df)
+    ax.set_xlabel("Importance", fontsize=axis_fs)
+    ax.set_ylabel("Features", fontsize=axis_fs)
+    ax.set_title("GradientBoosting\n Feature Importance", fontsize=title_fs)
+
+    plt.tight_layout()
+    plt.savefig('featureImportance.png', dpi=120)
+    plt.close()
+
 
 if __name__ == "__main__":
     main()
