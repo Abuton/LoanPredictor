@@ -40,12 +40,12 @@ def save_model(model:RandomForestClassifier, model_name:str):
     pickle.dump(model, pickle_out) 
     pickle_out.close()
 
-def explained_variance(model,X, y):
+def explained_variance(model:RandomForestClassifier,X:pd.DataFrame, y:pd.Series)-> float:
     train_score = model.score(X, y) * 100
 
     return train_score
 
-def report_accuracy(model):
+def report_accuracy(model:RandomForestClassifier, X:pd.DataFrame, y:pd.Series)->float:
     train_pred = model.predict(X)
     train_accuracy = accuracy_score(train_pred, y) * 100
 
@@ -61,7 +61,7 @@ def write_metrics(filename:str, train_score:float, train_accuracy:float ):
 
 def main():
     # load the data
-    df = load_data('data.csv')
+    df = load_data('data/data.csv')
     # transform the data
     X, y = transform_data(df)
     # build the model
@@ -73,7 +73,7 @@ def main():
     # explained variance
     train_score = explained_variance(classifier, X, y)
     # train_accuracy
-    train_accuracy = report_accuracy(classifier)
+    train_accuracy = report_accuracy(classifier, X, y)
     # write metrics
     write_metrics("metrics.txt", train_score, train_accuracy)
 
@@ -91,7 +91,7 @@ def main():
     ax = sns.barplot(x="Importance", y='Features', data=feature_df)
     ax.set_xlabel("Importance", fontsize=axis_fs)
     ax.set_ylabel("Features", fontsize=axis_fs)
-    ax.set_title("GradientBoosting\n Feature Importance", fontsize=title_fs)
+    ax.set_title("Random Forest Classifier\n Feature Importance", fontsize=title_fs)
 
     plt.tight_layout()
     plt.savefig('featureImportance.png', dpi=120)

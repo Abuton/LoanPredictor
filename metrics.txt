@@ -1,0 +1,2 @@
+Training Variance Explained:: 81.9%
+Training Accuracy Score:: 81.9%
