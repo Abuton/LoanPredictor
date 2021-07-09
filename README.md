@@ -14,3 +14,5 @@ The following Steps were taking <br>
 - Web App was deployed using Streamlit Sharing
 
 Data Source [here](https://datahack.analyticsvidhya.com/contest/practice-problem-loan-prediction-iii/?utm_source=blog&utm_medium=model_depoyment_using_streamlit#ProblemStatement)
+
+![image](https://user-images.githubusercontent.com/40719064/125074167-d491eb80-e0b4-11eb-8021-97d465070e33.png)
