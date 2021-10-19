@@ -1,5 +1,5 @@
-<!-- ![](https://github.com/ajilraju/actions-date/workflows/action-date%20test/badge.svg) -->
-![](https://github.com/Abuton/LoanPredictor/workflows/deploy_docker/badge.svg)
+
+![docker image deployed](https://github.com/Abuton/LoanPredictor/actions/workflows/deploy_docker.yml/badge.svg)
 ![python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![githubAction](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
 ![docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
@@ -11,7 +11,7 @@ Predict Loan Eligibility for Dream Housing Finance company
 
 Dream Housing Finance company deals in all kinds of home loans. They have presence across all urban, semi urban and rural areas. Customer first applies for home loan and after that company validates the customer eligibility for loan.
 
-Company wants to automate the loan eligibility process (real time) based on customer detail provided while filling online application form. These details are Gender, Marital Status, Education, Number of Dependents, Income, Loan Amount, Credit History and others. To automate this process, they have provided a dataset to identify the customers segments that are eligible for loan amount so that they can specifically target these customers. 
+Company wants to automate the loan eligibility process (real time) based on customer detail provided while filling online application form. These details are Gender, Marital Status, Education, Number of Dependents, Income, Loan Amount, Credit History and others. To automate this process, they have provided a dataset to identify the customers segments that are eligible for loan amount so that they can specifically target these customers.
 
 ## Streamlit App
 
