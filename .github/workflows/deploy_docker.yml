@@ -25,7 +25,7 @@ jobs:
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag abuton/loanprediction:$(date +%s)
+        run: docker build . --file Dockerfile --tag abuton/loanprediction:firstApp
         
       - name: deploy to dockerhub
-        run: docker push ${{secrets.DOCKER_USER}}/loanprediction
+        run: docker push ${{secrets.DOCKER_USER}}/loanprediction:firstApp
