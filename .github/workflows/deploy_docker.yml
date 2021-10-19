@@ -18,7 +18,6 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-      - name: airtable details
       - name: docker login
         env:
           DOCKER_USER: ${{secrets.DOCKER_USER}}
