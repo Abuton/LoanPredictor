@@ -1,0 +1,31 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy to DockerHub
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: airtable details
+      - name: docker login
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USER}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      - name: build loanprediction docker image
+        run: docker build . --file Dockerfile --tag abuton/loanprediction:$(date +%s)
+      - name: deploy to dockerhub
+        run: docker push $DOCKER_USER/loanprediction
