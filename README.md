@@ -5,9 +5,9 @@
 ![docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
 ![streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)
 
-# LoanPredictor
+# Loan Eligibility Predictor
 
-Predict Loan Eligibility for Dream Housing Finance company
+A Machine Learning Model to predict Loan eligibility for Dream Housing Finance company
 
 Dream Housing Finance company deals in all kinds of home loans. They have presence across all urban, semi urban and rural areas. Customer first applies for home loan and after that company validates the customer eligibility for loan.
 
@@ -18,8 +18,8 @@ Company wants to automate the loan eligibility process (real time) based on cust
 Streamlit App was Built to Expose the Model into production
 The following Steps were taking
 
-- Model was Built and was pickled
-- A frontend view was designed to collect input data
+- Model was Built and was pickled using the sklearn library
+- A frontend view was designed to collect input data using streamlit
 - Web App was deployed using Streamlit Sharing
 
 Data Source [here](https://datahack.analyticsvidhya.com/contest/practice-problem-loan-prediction-iii/?utm_source=blog&utm_medium=model_depoyment_using_streamlit#ProblemStatement)
