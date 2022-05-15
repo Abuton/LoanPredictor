@@ -1,6 +1,6 @@
 pandas==1.1.5
 scikit_learn==0.24.0
 pyngrok==5.0.5
-streamlit==0.84.0
+streamlit==1.7.0
 matplotlib==3.3.4
 seaborn==0.11.1
